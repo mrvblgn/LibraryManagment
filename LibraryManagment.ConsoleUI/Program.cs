@@ -78,7 +78,9 @@ List<Category> categories = new List<Category>()
 // PageSizeTotalCalculator();
 // GetAllBooksByTitleContains();
 // GetBookByISBN();
-Add();
+// AddBook();
+AddAuthor();
+AddCategory();
 
 void GetBookInputs(out int id,
     out string title,
@@ -129,6 +131,64 @@ Book GetBookInputs2(){
     return book;
 }
 
+Author GetAuthorInputs()
+{
+    Console.WriteLine("Lütfen yazar id'sini giriniz: ");
+    int id = Convert.ToInt32(Console.ReadLine());
+    
+    Console.WriteLine("Lütfen yazar adını: ");
+    string name = Console.ReadLine();
+    
+    Console.WriteLine("Lütfen yazar soyadını giriniz: ");
+    string surname = Console.ReadLine();
+    
+    Author author = new Author(id, name, surname);
+    return author;
+}
+
+bool AddAuthorValidator(Author author)
+{
+    bool isValid = true;
+
+    foreach (Author item in authors)
+    {
+        if (item.Id == author.Id || item.Name == author.Name || item.Surname == author.Surname)
+        {
+            isValid = false;
+            break;
+        }
+    }
+
+    return isValid;
+}
+
+Category GetCategoryInputs()
+{
+    Console.WriteLine("Lütfen kategori id sini giriniz: ");
+    int id = Convert.ToInt32(Console.ReadLine());
+    
+    Console.WriteLine("Lütfen kategori adını giriniz: ");
+    string name = Console.ReadLine();
+    
+    Category category = new Category(id, name);
+    return category;
+}
+
+bool AddCategoryValidator(Category category)
+{
+    bool isUnique = true;
+
+    foreach (Category item in categories)
+    {
+        if (item.Id == category.Id || item.Name == category.Name)
+        {
+            isUnique = false;
+            break;
+        }
+    }
+    return isUnique;
+}
+
 bool AddBookValidator(Book book)
 {
     bool isUnique = true;
@@ -145,7 +205,7 @@ bool AddBookValidator(Book book)
     return isUnique;
 }
 
-void Add()
+void AddBook()
 {
     //1. Yöntem
     //int id;
@@ -167,6 +227,37 @@ void Add()
     }
     books.Add(book);
     GetAllBooks();
+}
+
+void AddAuthor()
+{
+    Author author = GetAuthorInputs();
+
+    bool isUnique = AddAuthorValidator(author);
+
+    if (!isUnique)
+    {
+        Console.WriteLine("Girmiş olduğunuz yazar benzersiz değil");
+        return;
+    }
+    authors.Add(author);
+    GetAllAuthors();
+}
+
+void AddCategory()
+{
+    Category category = GetCategoryInputs();
+    
+    bool isUnique = AddCategoryValidator(category);
+
+    if (!isUnique)
+    {
+        Console.WriteLine("Girmiş olduğunuz kategori benzer değil");
+        return;
+    }
+
+    categories.Add(category);
+    GetAllCategories();
 }
 
 void GetBookByISBN()
