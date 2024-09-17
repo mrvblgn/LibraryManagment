@@ -1,0 +1,14 @@
+/Users/mervebilgin/RiderProjects/LibraryManagment/LibraryManagment.ConsoleUI/bin/Debug/net8.0/LibraryManagment.ConsoleUI
+/Users/mervebilgin/RiderProjects/LibraryManagment/LibraryManagment.ConsoleUI/bin/Debug/net8.0/LibraryManagment.ConsoleUI.deps.json
+/Users/mervebilgin/RiderProjects/LibraryManagment/LibraryManagment.ConsoleUI/bin/Debug/net8.0/LibraryManagment.ConsoleUI.runtimeconfig.json
+/Users/mervebilgin/RiderProjects/LibraryManagment/LibraryManagment.ConsoleUI/bin/Debug/net8.0/LibraryManagment.ConsoleUI.dll
+/Users/mervebilgin/RiderProjects/LibraryManagment/LibraryManagment.ConsoleUI/bin/Debug/net8.0/LibraryManagment.ConsoleUI.pdb
+/Users/mervebilgin/RiderProjects/LibraryManagment/LibraryManagment.ConsoleUI/obj/Debug/net8.0/LibraryManagment.ConsoleUI.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mervebilgin/RiderProjects/LibraryManagment/LibraryManagment.ConsoleUI/obj/Debug/net8.0/LibraryManagment.ConsoleUI.AssemblyInfoInputs.cache
+/Users/mervebilgin/RiderProjects/LibraryManagment/LibraryManagment.ConsoleUI/obj/Debug/net8.0/LibraryManagment.ConsoleUI.AssemblyInfo.cs
+/Users/mervebilgin/RiderProjects/LibraryManagment/LibraryManagment.ConsoleUI/obj/Debug/net8.0/LibraryManagment.ConsoleUI.csproj.CoreCompileInputs.cache
+/Users/mervebilgin/RiderProjects/LibraryManagment/LibraryManagment.ConsoleUI/obj/Debug/net8.0/LibraryManagment.ConsoleUI.dll
+/Users/mervebilgin/RiderProjects/LibraryManagment/LibraryManagment.ConsoleUI/obj/Debug/net8.0/refint/LibraryManagment.ConsoleUI.dll
+/Users/mervebilgin/RiderProjects/LibraryManagment/LibraryManagment.ConsoleUI/obj/Debug/net8.0/LibraryManagment.ConsoleUI.pdb
+/Users/mervebilgin/RiderProjects/LibraryManagment/LibraryManagment.ConsoleUI/obj/Debug/net8.0/LibraryManagment.ConsoleUI.genruntimeconfig.cache
+/Users/mervebilgin/RiderProjects/LibraryManagment/LibraryManagment.ConsoleUI/obj/Debug/net8.0/ref/LibraryManagment.ConsoleUI.dll

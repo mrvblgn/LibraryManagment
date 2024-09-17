@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryManagment", "LibraryManagment\LibraryManagment.csproj", "{A172E623-B02B-42C0-9A29-F9E1448BC8ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryManagment.ConsoleUI", "LibraryManagment.ConsoleUI\LibraryManagment.ConsoleUI.csproj", "{57C395F4-D25D-414C-9BC1-36A7D0FB2EC2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A172E623-B02B-42C0-9A29-F9E1448BC8ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A172E623-B02B-42C0-9A29-F9E1448BC8ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A172E623-B02B-42C0-9A29-F9E1448BC8ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A172E623-B02B-42C0-9A29-F9E1448BC8ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57C395F4-D25D-414C-9BC1-36A7D0FB2EC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57C395F4-D25D-414C-9BC1-36A7D0FB2EC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57C395F4-D25D-414C-9BC1-36A7D0FB2EC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57C395F4-D25D-414C-9BC1-36A7D0FB2EC2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
