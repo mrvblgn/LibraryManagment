@@ -77,7 +77,57 @@ List<Category> categories = new List<Category>()
 // GetAllBooksByPageSizeFilter();
 // PageSizeTotalCalculator();
 // GetAllBooksByTitleContains();
-GetBookByISBN();
+// GetBookByISBN();
+Add();
+
+void Add()
+{
+    PrintAyirac("Kitap Ekleme: ");
+    Console.WriteLine("Lütfen kitap id'sini giriniz: ");
+    int id = Convert.ToInt32(Console.ReadLine());
+    
+    Console.WriteLine("Lütfen kitap başlığını giriniz: ");
+    string title = Console.ReadLine();
+    
+    Console.WriteLine("Lütfen kitap açıklamasını giriniz: ");
+    string description = Console.ReadLine();
+    
+    Console.WriteLine("Lütfen sayfa sayısını giriniz: ");
+    int pageSize = Convert.ToInt32(Console.ReadLine());
+    
+    Console.WriteLine("Lütfen kitap yayınlanma tarihini giriniz: ");
+    string publishDate = Console.ReadLine();
+    
+    Console.WriteLine("Lütfen kitap isbn numarasını giriniz: ");
+    string isbn = Console.ReadLine();
+
+    
+    Book book = new Book(id, title, description, pageSize, publishDate, isbn);
+
+    bool isUnique = true;
+
+    foreach (Book item in books)
+    {
+        if (item.Id == id || item.ISBN == isbn)
+        {
+            isUnique = false;
+            break;
+        }
+    }
+
+    if (!isUnique)
+    {
+        Console.WriteLine("Girmiş olduğunuz kitap benzersiz değil");
+        return;
+    }
+    
+    books.Add(book);
+
+    foreach (Book item in books)
+    {
+        Console.WriteLine(item);
+    }
+}
 
 void GetBookByISBN()
 {
