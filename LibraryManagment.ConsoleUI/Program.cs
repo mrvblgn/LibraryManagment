@@ -12,7 +12,7 @@
 
 // Kitapları sayfa sayısına göre filtreleyen kodu yazınız
 // Kütüphanedeki tüm kitapların sayfa sayısı toplamını hesaplayan kodu yazınız.
-// Kitap başlığına göre filtreleme işkemini yapınız
+// Kitap başlığına göre filtreleme işlemini yapınız
 // Kitap ISBN numarasına göre ilgili kitabı getiriniz
 
 // Kitaplar listesine yeni bir kitap ekleyip eklendikten sonra listeyi ekran çıktısı olarak veriniz. 
@@ -52,7 +52,7 @@ List<Book> books = new List<Book>()
     new Book(8, "16 Yıl Şampiyonluk", "Hayal ürünüdür", 255, "10 Eylül", "9789750723328"),
     new Book(9, "Rezonans Kanunu", "Kişisel gelişim kitabı", 320, "Kasım 2016", "9789750723329")
 };
-GetAllBooks();
+//GetAllBooks();
 
 List<Author> authors = new List<Author>()
 {
@@ -64,7 +64,7 @@ List<Author> authors = new List<Author>()
     new Author(6, "ALi", "Koç"),
     new Author(7, "Vız vız", "Ali")
 };
-GetAllAuthors();
+//GetAllAuthors();
 
 List<Category> categories = new List<Category>()
 {
@@ -72,8 +72,52 @@ List<Category> categories = new List<Category>()
     new Category(2, "Türk Klasikleri"),
     new Category(3, "Bilim Kurgu"),
 };
-GetAllCategories();
+//GetAllCategories();
 
+// GetAllBooksByPageSizeFilter();
+// PageSizeTotalCalculator();
+// GetAllBooksByTitleContains();
+GetBookByISBN();
+
+void GetBookByISBN()
+{
+    Console.WriteLine("Lütfen ISBN numarasını giriniz: ");
+    string isbn = Console.ReadLine();
+    
+    foreach (Book book in books)
+    {
+        if (book.ISBN == isbn)
+        {
+            Console.WriteLine(book);
+        }
+    }
+}
+
+void PageSizeTotalCalculator()
+{
+    int toplam = 0;
+    foreach (Book book in books)
+    {
+        int sayfaSayisi = book.PageSize;
+        toplam += sayfaSayisi;
+    }
+
+    Console.WriteLine("Toplam sayfa sayısı: " + toplam);
+}
+
+void GetAllBooksByTitleContains()
+{
+    Console.WriteLine("Lütfen kitap başlığını giriniz: ");
+    string arama = Console.ReadLine();
+
+    foreach (Book book in books)
+    {
+        if(book.Title.Contains(arama, StringComparison.CurrentCultureIgnoreCase))
+        {
+            Console.WriteLine(book);
+        }
+    }
+}
 
 void GetAllBooks()
 {
@@ -101,6 +145,25 @@ void PrintAyirac(string veri)
 {
     Console.WriteLine("------------------------------------------");
     Console.WriteLine(veri);
+}
+
+void GetAllBooksByPageSizeFilter()
+{
+    PrintAyirac("Sayfa sayısına göre filtreleme");
+    
+    Console.WriteLine("Lütfen min değeri giriniz: ");
+    int min = Convert.ToInt32(Console.ReadLine());
+
+    Console.WriteLine("Lütfen max değeri giriniz: ");
+    int max = Convert.ToInt32(Console.ReadLine());
+
+    foreach (Book item in books)
+    {
+        if (item.PageSize <= max && item.PageSize >= min)
+        {
+            Console.WriteLine(item);
+        }
+    }
 }
 
 

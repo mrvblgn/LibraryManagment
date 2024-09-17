@@ -12,3 +12,4 @@
 /Users/mervebilgin/RiderProjects/LibraryManagment/LibraryManagment.ConsoleUI/obj/Debug/net8.0/LibraryManagment.ConsoleUI.pdb
 /Users/mervebilgin/RiderProjects/LibraryManagment/LibraryManagment.ConsoleUI/obj/Debug/net8.0/LibraryManagment.ConsoleUI.genruntimeconfig.cache
 /Users/mervebilgin/RiderProjects/LibraryManagment/LibraryManagment.ConsoleUI/obj/Debug/net8.0/ref/LibraryManagment.ConsoleUI.dll
+/Users/mervebilgin/RiderProjects/LibraryManagment/LibraryManagment.ConsoleUI/obj/Debug/net8.0/LibraryManagment.ConsoleUI.sourcelink.json
