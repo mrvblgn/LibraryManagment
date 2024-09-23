@@ -1,6 +1,6 @@
 namespace LibraryManagment.ConsoleUI;
 
-public record Category
+public class Category
 {
     public Category(){}
 
