@@ -17,7 +17,7 @@ public class BookService
         }
     }
 
-    public void GetById(int id)
+    public void GetById(Guid id)
     {
         Book? book = bookRepository.GetById(id);
         if (book is null)
@@ -29,7 +29,7 @@ public class BookService
         Console.WriteLine(book);
     }
 
-    public void Remove(int id)
+    public void Remove(Guid id)
     {
         Book? deletedBook = bookRepository.Remove(id);
         if (deletedBook is null)
@@ -148,7 +148,7 @@ public class BookService
         Console.WriteLine(created);
     }
 
-    private void BookIdBusinessRules(int id)
+    private void BookIdBusinessRules(Guid id)
     {
         Book? getByIdBook = bookRepository.GetById(id);
         if (getByIdBook != null)
@@ -163,7 +163,7 @@ public class BookService
         Book? getByIdBook = bookRepository.GetBookByISBN(isbn);
         if (getByIdBook != null)
         {
-            Console.WriteLine($"Girmiş olduğunuz kitabın id alanı benzersiz olmalı: {isbn}");
+            Console.WriteLine($"Girmiş olduğunuz kitabın isbn alanı benzersiz olmalı: {isbn}");
             return;
         }
         

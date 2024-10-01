@@ -1,11 +1,24 @@
 namespace LibraryManagment.ConsoleUI.Repository;
 
-public class CategoryRepository
+public class CategoryRepository : ICategoryRepository
 {
-    List<Category> categories = new List<Category>()
+    public List<Category> GetAll()
     {
-        new Category(1, "Dünya Klasikleri"),
-        new Category(2, "Türk Klasikleri"),
-        new Category(3, "Bilim Kurgu"),
-    };
+        throw new NotImplementedException();
+    }
+
+    public Category Add(Category created)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Category? Remove(int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Category? GetById(int id)
+    {
+        throw new NotImplementedException();
+    }
 }

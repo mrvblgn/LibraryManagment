@@ -2,40 +2,18 @@ using LibraryManagment.ConsoleUI.Dtos;
 
 namespace LibraryManagment.ConsoleUI.Repository;
 
-
-public class BookRepository
+public class BookRepository : BaseRepository, IBookRepository
 {
-    List<Author> authors = new List<Author>()
+    private List<Book> books;
+    private List<Author> authors;
+    private List<Category> categories;
+    public BookRepository()
     {
-        new Author(1, "Emile", "Zola"),
-        new Author(2, "Fyodor", "Dostoyevski"),
-        new Author(3, "Recaizade Mahmut", "Ekrem"),
-        new Author(4, "Halide Edib", "Adıvar"),
-        new Author(5, "Ömer", "Seyfettin"),
-        new Author(6, "ALi", "Koç"),
-        new Author(7, "Vız vız", "Ali")
-    };
+        books = Books();
+        authors = Authors();
+        categories = Categories();
+    }
     
-    List<Book> books = new List<Book>()
-    {
-        new Book(1, 1, 1, "Germinal", "Kömür Madeni", 341, "2012 Mayıs", "9789750723322"),
-        new Book(2, 1, 2, "Suç ve Ceza", "Raskolnikov'un hayatı", 315, "2010 Haziran", "9789750723323"),
-        new Book(3, 1, 2, "Kumarbaz", "Bir öğretmenin hayatı", 210, "2009 Ocak", "9789750723323"),
-        new Book(4, 1, 3, "Araba Sevdası", "Arabayla alakası olmayan kitap", 400, "1999 Ocak", "9789750723324"),
-        new Book(5, 2, 4, "Ateşten Gömlek", "Kurtuluş savaşını anlatan kitap", 320, "2001 Eylül", "9789750723325"),
-        new Book(6, 2, 5, "Kaşağı", "Okunmaması gereken bir kitap", 95, "1993 Ocak", "9789750723326"),
-        new Book(7, 3, 6, "Harry Potter ve Felsefe Taşı", "Harry felsefe taşını kurtarmaya çalışır", 540, "2000 Ocak", "9789750723327"),
-        new Book(8, 3, 6, "16 Yıl Şampiyonluk", "Hayal ürünüdür", 255, "10 Eylül", "9789750723328"),
-        new Book(9, 3, 7, "Rezonans Kanunu", "Kişisel gelişim kitabı", 320, "Kasım 2016", "9789750723329")
-    };
-    
-    List<Category> categories = new List<Category>()
-    {
-        new Category(1, "Dünya Klasikleri"),
-        new Category(2, "Türk Klasikleri"),
-        new Category(3, "Bilim Kurgu"),
-    };
-
     public List<Book> GetAll()
     {
         return books;
@@ -43,27 +21,6 @@ public class BookRepository
 
     public List<Book> GetAllBooksByPageSizeFilter(int min, int max)
     {
-        // Geleneseksel Yöntem
-        /*List<Book> filteredBooks = new List<Book>();
-
-        foreach (Book item in books)
-        {
-            if (item.PageSize <= max && item.PageSize >= min)
-            {
-                filteredBooks.Add(item);
-            }
-        }
-        return filteredBooks;*/
-
-        /*
-        Linq Geleneksel: 
-        List<Book> result = (from b in books
-            where b.PageSize <= max && b.PageSize >= min
-            select b).ToList();
-        return result; */
-        
-        // List<Book> result = books.Where(b => b.PageSize <= max && b.PageSize >= min).ToList();
-
         List<Book> result = books.FindAll(b => b.PageSize <= max && b.PageSize >= min);
         return result;
     }
@@ -76,18 +33,6 @@ public class BookRepository
 
     public List<Book> GetAllBooksByTitleContains(string text)
     {
-        /*
-        List<Book> filteredBooks = new List<Book>();
-
-        foreach (Book item in books)
-        {
-            if (item.Title.Contains(text, StringComparison.InvariantCultureIgnoreCase))
-            {
-                filteredBooks.Add(item);
-            }
-        }
-        return filteredBooks;*/
-        
         // findAll listelemek için where liste de döndürür dict de
         List<Book> result = books.FindAll(b => b.Title.Contains(text, StringComparison.CurrentCultureIgnoreCase));
         return result;
@@ -95,31 +40,6 @@ public class BookRepository
 
     public Book? GetBookByISBN(string isbn)
     {
-        /*
-        Book? book1 = null;
-        foreach (Book item in books)
-        {
-            if (item.ISBN == isbn)
-            {
-                book1 = item;
-            }
-        } */
-        // 1.Yöntem
-        /*if (book1 is null)
-        {
-            return null;
-        }
-        return book1;*/
-        
-        // 2. Yöntem
-        // return book1 ?? book1;
-        
-        // return book1 == null ? null  : book1;
-        
-        // Book? book = (from b in books where b.ISBN == isbn select b).FirstOrDefault();
-        
-        // Book book = books.Where(x => x.ISBN == isbn).SingleOrDefault();
-
         Book book = books.SingleOrDefault(x => x.ISBN == isbn);
         return book;
     }
@@ -130,7 +50,7 @@ public class BookRepository
         return created;
     }
 
-    public Book? GetById(int id)
+    public Book? GetById(Guid id)
     {
         Book? book1 = null;
         foreach (Book book in books)
@@ -147,7 +67,7 @@ public class BookRepository
         return book1;
     }
 
-    public Book? Remove(int id)
+    public Book? Remove(Guid id)
     {
         Book? deletedBook = GetById(id);
 
@@ -263,7 +183,14 @@ public class BookRepository
             );
         return result.ToList();
     }
-    
+
+    public List<string> GetAllTitles()
+    {
+        List<string> titles =
+            books.Select(t => t.Title).ToList();
+        
+        return titles;
+    }
 }
 
 
